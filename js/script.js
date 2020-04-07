@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
   // Установим дату дедлайна
-  let deadline = '2020-05-01';
+  let deadline = '2020-05-01';  
 
 
   // получим время, оставшееся до дедлайна
@@ -81,7 +81,8 @@ window.addEventListener('DOMContentLoaded', function () {
  };
 
  setClock('timer', deadline);
- 
+
+
 });
 
 
