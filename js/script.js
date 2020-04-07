@@ -37,8 +37,8 @@ window.addEventListener('DOMContentLoaded', function () {
   // Делаем интерактивный таймер
 
 
-  // Установим дату дедлайна
-  let deadline = '2020-05-01';  
+  //  Установим дату дедлайна
+  let deadline = '2020-04-01';  
 
 
   // получим время, оставшееся до дедлайна
@@ -69,20 +69,29 @@ window.addEventListener('DOMContentLoaded', function () {
 // напишем функцию, которая будет получать значения таймера в реальном времени
     function updateClock(){
       let t = getTimeRemaining(endtime);
-      hours.textContent = t.hours;
-      minutes.textContent = t.minutes;
-      seconds.textContent = t.seconds;
+      
+      if (t.total <= 0) {
+        t.hours = 0;
+        t.minutes = 0;
+        t.seconds = 0;
+      }
+// напишем функцию, которая будет добавлять 0 к числу, если оно меньше 10
+      function addZero(num){
+        if(num<10){
+          return "0" + num
+        } else return num;
+      }
+      hours.textContent = addZero(t.hours);
+      minutes.textContent = addZero(t.minutes);
+      seconds.textContent = addZero(t.seconds);
 
-      if (t.total < 0) {
+
+      if (t.total <= 0) {
         clearInterval(timeInterval);
       }
-      
     }
  };
-
  setClock('timer', deadline);
-
-
 });
 
 
