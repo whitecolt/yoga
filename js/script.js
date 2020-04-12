@@ -92,7 +92,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
  };
  setClock('timer', deadline);
-});
+
 
 // Добавим модальное окно
 
@@ -111,6 +111,7 @@ let more = document.querySelector('.more'),
     more.classList.remove('.more-splash');
     document.body.style.overflow = 'visible';
   })
+
 
   // Добавим отправку формы из модального окна на сервер
 
@@ -132,7 +133,7 @@ let more = document.querySelector('.more'),
 
         let request = new XMLHttpRequest();
         request.open('POST', 'server.php')
-        request.setRequestHeader('Content-Type', 'application/json');
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         let formData = new FormData(form);
         let obj = {};
@@ -187,4 +188,6 @@ let more = document.querySelector('.more'),
           }
         });
       });
+});
+
 
